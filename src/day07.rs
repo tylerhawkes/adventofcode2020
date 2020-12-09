@@ -75,7 +75,8 @@ fn day7_part2(graph: &BagGraph) -> usize {
         let bags = get(graph, color) * count;
         bags
       })
-      .sum::<usize>() + 1;
+      .sum::<usize>()
+      + 1;
     bags
   }
   let bags = get(graph, "shiny gold") - 1;
