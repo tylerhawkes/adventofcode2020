@@ -10,7 +10,10 @@ pub mod day06;
 pub mod day07;
 pub mod day08;
 pub mod day09;
+pub mod day10;
+pub mod day11;
+pub mod day12;
 
-aoc_runner_derive::aoc_main! { year = 2020 }
+aoc_runner_derive::aoc_lib! { year = 2020 }
 
 // fn main() {}

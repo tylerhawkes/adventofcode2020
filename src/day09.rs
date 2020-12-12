@@ -5,7 +5,10 @@ fn generator(input: &str) -> Vec<u64> {
 
 fn adds_to_i(i: u64, s: &[u64]) -> bool {
   assert_eq!(s.len(), 25);
-  s.iter().copied().enumerate().any(|(j, x)| s[j+1..].iter().copied().any(move |y| x != y && x + y == i))
+  s.iter()
+    .copied()
+    .enumerate()
+    .any(|(j, x)| s[j + 1..].iter().copied().any(move |y| x != y && x + y == i))
 }
 
 #[aoc(day9, part1)]
