@@ -70,6 +70,7 @@ impl WaitingArea {
       .map(|l| l.iter().filter(|s| **s == Space::Occupied).count())
       .sum()
   }
+  #[allow(unused)]
   fn print(&self) {
     println!("---------------------------------------------------------------------------");
     self.layout.iter().for_each(|l| {

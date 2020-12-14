@@ -126,7 +126,6 @@ fn day12_part2(input: &[Instruction]) -> i32 {
         _ => unreachable!(),
       },
     }
-    println!("{:?}, {}, {}, {}, {}", i, x, y, wayx, wayy);
   });
   x.abs() + y.abs()
 }

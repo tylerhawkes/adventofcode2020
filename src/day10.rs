@@ -4,7 +4,7 @@ fn day10_generator(input: &str) -> Vec<i64> {
 }
 
 #[aoc(day10, part1)]
-fn day1_part1(input: &[i64]) -> usize {
+fn day10_part1(input: &[i64]) -> usize {
   let mut v = input.to_vec();
   v.push(0);
   v.push(v.iter().max().unwrap() + 3);
@@ -26,7 +26,7 @@ fn day1_part1(input: &[i64]) -> usize {
 }
 
 #[aoc(day10, part2)]
-fn day1_part2(input: &[i64]) -> usize {
+fn day10_part2(_input: &[i64]) -> usize {
   2   // 1
   * 7 // 6-8
   * 4 // 13-4
