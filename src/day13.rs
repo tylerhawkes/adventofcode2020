@@ -20,14 +20,13 @@ fn day13_part1(input: &str) -> u64 {
     .map(|b| (b, b - earliest_time % b))
     .min_by_key(|(_, t)| *t)
     .unwrap();
-  dbg!((x, buses));
+  // dbg!((x, buses));
   x.0 * x.1
 }
 
 #[aoc(day13, part2)]
 fn day13_part2(input: &str) -> u64 {
   let lines = input.lines();
-  // let mut earliest_time = lines.next().unwrap().parse::<u64>().unwrap();
 
   let buses = lines
     .skip(1)
@@ -36,8 +35,19 @@ fn day13_part2(input: &str) -> u64 {
     .split(',')
     .enumerate()
     .filter(|(_, c)| c != &"x")
-    .map(|(i, n)| (i, n.parse().unwrap()))
-    .collect::<Vec<(usize, u64)>>();
-  dbg!(&buses);
-  buses.iter().copied().map(|(_, i)| i).product()
+    .map(|(i, n)| (i as u64, n.parse().unwrap()))
+    .collect::<Vec<(u64, u64)>>();
+  // dbg!(&buses);
+  let mut earliest_time = 0;
+  let mut multiple = 1;
+  buses.iter().copied().for_each(|(i, t)| {
+    while (earliest_time + i) % t != 0 {
+      earliest_time += multiple;
+      // println!("earliest_time: {}, {}, {}, {}", earliest_time, (earliest_time + i) % t, i, t);
+    }
+    multiple *= t;
+    // println!("multiple: {}", multiple);
+  });
+  // println!("{}, {}", earliest_time, multiple);
+  earliest_time
 }
