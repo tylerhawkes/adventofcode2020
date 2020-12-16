@@ -1,11 +1,15 @@
-use std::collections::HashMap;
 use std::collections::hash_map::Entry;
+use std::collections::HashMap;
 
 fn answer(input: &str, count: usize) -> usize {
   let mut numbers = input.split(',').map(|l| l.parse::<usize>().unwrap()).collect::<Vec<_>>();
   let mut last = numbers.pop().unwrap();
-  let mut turns = numbers.into_iter().enumerate().map(|(t, n)|(n, t)).collect::<HashMap<usize, usize>>();
-  for i in turns.len() .. count - 1 {
+  let mut turns = numbers
+    .into_iter()
+    .enumerate()
+    .map(|(t, n)| (n, t))
+    .collect::<HashMap<usize, usize>>();
+  for i in turns.len()..count - 1 {
     match turns.entry(last) {
       Entry::Occupied(mut o) => {
         last = i - *o.get();
