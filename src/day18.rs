@@ -77,7 +77,7 @@ enum TreeExpr {
   Expr(Box<TreeExpr>),
 }
 
-// I'm sure there is a better way to do this, but it worked.
+// I'm sure there is a better way to do this, but it worked, I guess.
 impl TreeExpr {
   fn parse_from_chars(chars: &mut dyn Iterator<Item = char>) -> Self {
     Self::Expr(Box::new(Self::parse_from_chars_inner(chars)))

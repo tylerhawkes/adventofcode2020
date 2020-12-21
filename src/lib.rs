@@ -19,7 +19,10 @@ pub mod day15;
 pub mod day16;
 pub mod day17;
 pub mod day18;
+pub mod day19;
+pub mod day20;
+pub mod day21;
 
 aoc_runner_derive::aoc_lib! { year = 2020 }
 
-// fn main() {}
+// need a grid that can be flipped and rotated on two axis and that can be 2, 3, or 4 dimensional.
